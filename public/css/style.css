@@ -1,0 +1,9 @@
+body{
+	background-color: #1a1a1a;
+}
+.menu-haut {
+	background-color: black;
+	border-bottom: 1px solid white;
+	padding: 30px;
+	font-size: 1.2em;
+}
