@@ -17,5 +17,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-
+Route::get('/pronostics', 'PronosticController@showAllProno')->name('prono.index');
 Route::get('/prochain-match', 'PronosticController@nextMatch')->name('prono.prochain-match');

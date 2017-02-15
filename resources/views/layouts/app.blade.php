@@ -44,10 +44,12 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                    @if ( Auth::check() )
                         @if ( Auth::user()->isMember() )
                             <li><a href="{{ route('prono.prochain-match') }}">Prochain match</a></li>
-                            <li><a href="">Vos pronostics</a></li>
+                            <li><a href="{{ route('prono.index') }}">Vos pronostics</a></li>
                         @endif
+                    @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -27,6 +27,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function pronostic() {
+        return $this->hasMany(Pronostic::class);
+    }
+
     public function isAdmin()
     {
         if ($this->role == 2) {

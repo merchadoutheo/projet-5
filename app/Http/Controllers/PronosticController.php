@@ -9,7 +9,7 @@ class PronosticController extends Controller
 {
     public function showAll($id_match)
     {
-    	$pronostics = Pronostic::latest()->where('id_match', '=', $id_match)->paginate(10); 
+    	$pronostic = Pronostic::latest()->where('id_match', '=', $id_match)->paginate(10); 
     }
 	public function showMatchs()
 	{
@@ -25,4 +25,12 @@ class PronosticController extends Controller
             'prochain_match' => $prochain_match
         ]);
 	} 
+	public function showAllProno()
+	{
+		$matchs = file_get_contents('http://stadetoulousain.fr/api/matches');
+		$matchs = json_decode($matchs);
+		return view('pronostic')->with([
+			'matchs' => $matchs
+		]);
+	}
 }

@@ -13,11 +13,11 @@ class CreatePronosticTable extends Migration
      */
     public function up()
     {
-         Schema::create('pronostic', function (Blueprint $table) {
+         Schema::create('pronostics', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_match');
             $table->integer('user_id');
-            $table->integer('score_stade')
+            $table->integer('score_stade');
             $table->integer('score_adv');
             $table->rememberToken();
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreatePronosticTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pronostic');
+        Schema::dropIfExists('pronostics');
     }
 }
