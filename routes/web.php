@@ -19,3 +19,5 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/pronostics', 'PronosticController@showAllProno')->name('prono.index');
 Route::get('/prochain-match', 'PronosticController@nextMatch')->name('prono.prochain-match');
+Route::get('/administration','Admin\userController@index')->name('index.admin');
+Route::get('/administration/pronostic','Admin\pronosticController@index')->name('index.admin.pronostic');

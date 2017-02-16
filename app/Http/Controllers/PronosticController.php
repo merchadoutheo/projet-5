@@ -27,7 +27,7 @@ class PronosticController extends Controller
 	} 
 	public function showAllProno()
 	{
-		$matchs = file_get_contents('http://stadetoulousain.fr/api/matches');
+		$matchs = file_get_contents('http://merchadou.com/api.php?r=matchs_all');
 		$matchs = json_decode($matchs);
 		return view('pronostic')->with([
 			'matchs' => $matchs

@@ -27,8 +27,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Pronostic::class, function (Faker\Generator $faker) {
 
     return [
-        'id_match' => mt_rand(10,100),
-        'user_id' => mt_rand(0,25),
+        'id_match' => mt_rand(5302,5318),
+        'user_id' => mt_rand(1,25),
         'score_stade' => mt_rand(5,50),
         'score_adv' => mt_rand(5,50),
         'remember_token' => str_random(10),

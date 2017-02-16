@@ -61,7 +61,7 @@
                         @else
                             @if ( Auth::user()->isAdmin() )
                                 <li>
-                                    <button class="btn-default btn">Administration</button>
+                                    <a href="{{ route('index.admin') }}" class="btn-default btn">Administration</a>
                                 </li>
                             @endif
                             <li class="dropdown">
