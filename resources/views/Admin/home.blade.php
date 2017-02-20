@@ -9,6 +9,7 @@
                 <th>id</th>
                 <th>Pseudo</th>
                 <th>Permissions</th>
+                <th>Informations</th>
               </tr>
               @foreach( $users as $user)
                 <tr>
@@ -32,6 +33,8 @@
                     <td>Role inconnu</td>
 
                   @endif
+
+                  <td><a href="{{ route('user.admin', $user->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></td>
 
                   
                 </tr>

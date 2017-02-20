@@ -21,4 +21,12 @@ class userController extends Controller
             'users' => $users
         ]);
     }
+    public function showInfo($id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('Admin/infoUser')->with([
+            'user' => $user
+        ]);
+    }
 }

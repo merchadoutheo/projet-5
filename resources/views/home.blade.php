@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                   <div class="panel-heading">Dernière Actualité</div>
                   <div class="panel-body">
-                  <h3 class="bloc-titre-news">{{ $actus->title }}</h3>
+                  <h3 class="bloc-titre-news">{{ $actus->title }} - {{ $actus->subtitle }}</h3>
 
                   <img src="{{ $actus->image_url }}" alt="image-{{ $actus->title }}" class="img-news img-responsive">
                     
