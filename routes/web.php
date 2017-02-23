@@ -19,6 +19,10 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/pronostics', 'PronosticController@showAllProno')->name('prono.index');
 Route::get('/prochain-match', 'PronosticController@nextMatch')->name('prono.prochain-match');
+Route::get('/Classement', 'HomeController@classement')->name('classement.index');
+Route::get('/Classement/match-{id}', 'PronosticController@classement')->name('match.classement');
+
+
 Route::get('/administration','Admin\userController@index')->name('index.admin');
 Route::get('/administration/pronostic','Admin\pronosticController@index')->name('index.admin.pronostic');
-Route:: get('administration/user/{id}', 'Admin\userController@showInfo')->name('user.admin');
+Route::get('/administration/user/{id}','Admin\userController@showInfo')->name('user.admin');

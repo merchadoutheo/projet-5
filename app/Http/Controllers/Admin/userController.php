@@ -24,9 +24,19 @@ class userController extends Controller
     public function showInfo($id)
     {
         $user = User::findOrFail($id);
-
+        $matchs = file_get_contents('http://merchadou.com/api.php?r=matchs_all');
+        $matchs = json_decode($matchs);
+        foreach ($user->pronostic as $pronostic) {
+            foreach ($matchs->entries as $id => $match) {
+                if(($id == $pronostic->id_match) && ($match->is_local)):
+                    $prono[$pronostic->id] = $pronostic;
+                endif;
+            }
+        }
         return view('Admin/infoUser')->with([
-            'user' => $user
+            'user' => $user,
+            'pronostics' => $prono,
+            'matchs' => $matchs->entries
         ]);
     }
 }

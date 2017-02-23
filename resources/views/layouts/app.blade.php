@@ -48,6 +48,7 @@
                         @if ( Auth::user()->isMember() )
                             <li><a href="{{ route('prono.prochain-match') }}">Prochain match</a></li>
                             <li><a href="{{ route('prono.index') }}">Vos pronostics</a></li>
+                            <li><a href="{{ route('classement.index') }}">Classement</a></li>
                         @endif
                     @endif
                     </ul>

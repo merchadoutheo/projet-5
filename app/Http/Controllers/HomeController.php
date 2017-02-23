@@ -38,4 +38,13 @@ class HomeController extends Controller
             'actus' => $actualite[0]
         ]);
     }
+    public function classement()
+    {
+        $matchs = file_get_contents('http://merchadou.com/api.php?r=matchs_all');
+        $matchs = json_decode($matchs);
+
+        return view('classementIndex')->with([
+            'matchs' => $matchs
+            ]);
+    }
 }
