@@ -11,9 +11,11 @@
                   <p>Rôle : </p>
                   <a href="">
                     @if($user->role == 0)
-                      <button class="btn btn-ok"><span class="glyphicon">Visiteur</span></button>
-                    @else
-                      <button class="btn btn-ok"><span class="glyphicon">Pronostiqueur</span></button>
+                      <a href="{{route('user.changeStatut',$user->id)}}" class="btn btn-primary"><span class="glyphicon">Visiteur</span></a>
+                    @elseif($user->role == 1)
+                      <a href="{{route('user.changeStatut',$user->id)}}" class="btn btn-success"><span class="glyphicon">Pronostiqueur</span></a>
+                    @elseif($user->role == 2)
+                    <button class="btn btn-danger">Administrateur</button>
                     @endif
                   </a>
                   </div>
@@ -21,6 +23,9 @@
                 <div class="panel panel-default">
                   <div class="panel-heading">Pronostics</div>
                   <div class="panel-body">
+                  @if($pronostics == null)
+                  <h3>Vous n'avez pas encore proposer de pronostic</h3>
+                  @else
                   @foreach($pronostics as $pronostic)
                     @foreach($matchs as $id => $match)
                       @if($id == $pronostic->id_match)
@@ -31,6 +36,7 @@
                       @endif
                     @endforeach
                   @endforeach
+                  @endif;
                   </div>
                 </div>
             </div>

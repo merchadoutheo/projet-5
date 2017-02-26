@@ -4,48 +4,45 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <table>
-              <tr>
-                <th>id</th>
-                <th>Pseudo</th>
-                <th>Permissions</th>
-                <th>Informations</th>
-              </tr>
-              @foreach( $users as $user)
-                <tr>
-                  <td>{{ $user->id }}</td>
-                  <td>{{ $user->name }}</td>
-          
-                  @if($user->role == 0)
 
-                    <td>Visiteur</td>
+        <div class="panel panel-default">
+                  <div class="panel-heading titre-liste-match-classement"><h3>Liste des inscrits</h3></div>
+                  <table class="table">
+                  <tr>
+                    <th>Pseudo</th>
+                    <th>Permissions</th>
+                    <th>Informations</th>
+                  </tr>
+                    @foreach( $users as $user)
+                    <tr>
+                      <td>{{ $user->name }}</td>
+                      @if($user->role == 0)
 
-                  @elseif($user->role == 1)
-                  
-                    <td>Pronostiqueur</td>
+                        <td>Visiteur</td>
 
-                  @elseif($user->role == 2)
+                      @elseif($user->role == 1)
+                      
+                        <td>Pronostiqueur</td>
 
-                    <td>Administrateur</td>
+                      @elseif($user->role == 2)
 
-                  @else
+                        <td>Administrateur</td>
 
-                    <td>Role inconnu</td>
+                      @else
 
-                  @endif
+                        <td>Role inconnu</td>
 
-                  <td><a href="{{ route('user.admin', $user->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></td>
-
-                  
-                </tr>
-              @endforeach
-            </table>
+                      @endif
+                      <td><a href="{{ route('user.admin', $user->id) }}" class="btn btn-danger"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></td>
+                    </tr>
+                    @endforeach
+                  </table>
 
             {{ $users->links() }}          
                 
         </div>
 
-        <a href="{{ route('index.admin.pronostic') }}" class="btn btn-primary">Voir les pronostics</a>
+        {{-- <a href="{{ route('index.admin.pronostic') }}" class="btn btn-primary">Voir les pronostics</a> --}}
     </div>
 </div>
 @endsection

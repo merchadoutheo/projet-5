@@ -26,6 +26,7 @@ class userController extends Controller
         $user = User::findOrFail($id);
         $matchs = file_get_contents('http://merchadou.com/api.php?r=matchs_all');
         $matchs = json_decode($matchs);
+        $prono = null;
         foreach ($user->pronostic as $pronostic) {
             foreach ($matchs->entries as $id => $match) {
                 if(($id == $pronostic->id_match) && ($match->is_local)):
@@ -38,5 +39,19 @@ class userController extends Controller
             'pronostics' => $prono,
             'matchs' => $matchs->entries
         ]);
+    }
+    public function changeStatut($id)
+    {
+        $user = User::findOrFail($id);
+
+        if ($user->role == 0) {
+            $user->role = 1;
+        }
+        else{
+            $user->role = 0;
+        }
+        $user->save();
+
+        return redirect()->back();
     }
 }
