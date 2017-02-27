@@ -4,7 +4,7 @@
 
 Récupérer le code depuis Github:
 
-`git clone https://github.com/merchadoutheo/merchadou-projet-4.git`
+`git clone https://github.com/merchadoutheo/projet-5.git`
 
 Installer les dépendances avec composer:
 
