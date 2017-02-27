@@ -62,8 +62,6 @@
             </div>
           </div>
          <h3 class="date-page-prochain-match">Match prévu le {{ $prochain_match->match_human_date }} </h3>
-       </div>
-       <div class="panel-footer">
          <input type="submit" class="btn btn-ok send-prono-bouton" value="Proposer le pronostic">   
         </form>
        </div>

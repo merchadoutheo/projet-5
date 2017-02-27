@@ -14,12 +14,24 @@ class PronosticController extends Controller
 		$matchs = file_get_contents('http://merchadou.com/api.php?r=matchs_all');
 		$matchs = json_decode($matchs);
 
+		foreach($matchs->entries as $id => $match):
+    		foreach(Auth()->user()->pronostic as $pronostic):
+     			 if(($id == $pronostic->id_match) && ($match->is_local)):
+     			 	$pronostics[] = [
+     			 		"pronostic" => $pronostic,
+     			 		"match" => $match
+     			 	];
+     			 	
+     			 endif;
+     		endforeach;
+     	endforeach;
+
 		foreach($matchs->entries as $id => $match){
           $id_next_match = $id+1;
 		}
 
 		return view('pronostic')->with([
-			'matchs' => $matchs,
+			'pronostics' => $pronostics,
 			'id_next_match' => $id_next_match
 		]);	
 	}

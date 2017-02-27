@@ -21,7 +21,7 @@
                   </div>
                 </div>
                 <div class="panel panel-default">
-                  <div class="panel-heading">Pronostics</div>
+                  <div class="panel-heading"><h3>Pronostics</h3></div>
                   <div class="panel-body">
                   @if($pronostics == null)
                   <h3>Vous n'avez pas encore proposer de pronostic</h3>
@@ -29,10 +29,22 @@
                   @foreach($pronostics as $pronostic)
                     @foreach($matchs as $id => $match)
                       @if($id == $pronostic->id_match)
-                        <h3>{{$match->match_name}}</h3>
-                        <p>Score final : {{$match->score}}</p>
-                        <p>Pronostic : {{ $pronostic->score_stade }} - {{ $pronostic->score_adv }}</p>
-                        <p> Votre score : <?= abs(( $match->receiving_score - $pronostic->score_stade )) + abs(( $match->received_score - $pronostic->score_adv )) ?> </p>
+                      <div class="well">
+                        <h3 class="titre-prono-info-user">{{$match->match_name}}</h3>
+                        <div class="prono">
+                           <h5 class="titre-prono">Pronostic</h5>
+                           <h4>{{ $pronostic->score_stade }} - {{ $pronostic->score_adv }}</h4>
+                        </div>
+                        <div class="resultat">
+                           <h5 class="titre-prono">Résultat</h5>
+                           <h4>{{ $match->receiving_score }} - {{ $match->received_score  }}</h4>
+                        </div>
+                        <div class="score-page">
+                          <h5>SCORE</h5>
+                          <h2><?= abs(( $match->receiving_score - $pronostic->score_stade )) + abs(( $match->received_score - $pronostic->score_adv )) ?></h2>
+                        </div>
+                      </div>
+                       
                       @endif
                     @endforeach
                   @endforeach

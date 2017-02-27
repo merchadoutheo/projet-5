@@ -38,7 +38,7 @@ class User extends Authenticatable
         }
     }
 
-    public function isMember()
+    public function isPronostiqueur()
     {
         if ($this->role >= 1) {
             return true;

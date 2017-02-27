@@ -132,3 +132,11 @@ hr.red{
     border: 1px solid #ddd;
     margin-left: -1px;
 }
+h3.titre-prono-info-user{
+	text-align: center;
+}
+p a.btn.btn-stade{
+	color: #fff;
+    background-color: #b60000;
+    border-color: #000000;
+}

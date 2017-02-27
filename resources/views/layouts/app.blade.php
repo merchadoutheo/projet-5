@@ -45,7 +45,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                     @if ( Auth::check() )
-                        @if ( Auth::user()->isMember() )
+                        @if ( Auth::user()->isPronostiqueur() )
                             <li><a href="{{ route('prono.prochain-match') }}">Prochain match</a></li>
                             <li><a href="{{ route('prono.index') }}">Vos pronostics</a></li>
                             <li><a href="{{ route('classement.index') }}">Classement</a></li>

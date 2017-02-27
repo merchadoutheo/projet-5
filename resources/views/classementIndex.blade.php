@@ -10,7 +10,7 @@
                   @foreach($matchs->entries as $id => $match)
                     @if($match->is_local)
                       <div class="well">
-                        <p>{{$match->match_name}}<a class="btn btn-primary pull-right" href="{{ route('match.classement', $id) }}">Voir le classement -></a></p>
+                        <p>{{$match->match_name}}<a class="btn btn-stade pull-right" href="{{ route('match.classement', $id) }}">Voir le classement -></a></p>
                         
                       </div>
                       <hr class="red">
